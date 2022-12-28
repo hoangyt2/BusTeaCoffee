@@ -55,7 +55,8 @@ public class InvoiceService {
 
     public String save(InvoiceVO vO) {
         Invoice bean = new Invoice();
-        Employee employee = employeeRepository.findById("Employee00001").orElseThrow(() -> new NoSuchElementException());
+//        Employee employee = employeeRepository.findById("Employee00001").orElseThrow(() -> new NoSuchElementException());
+        Employee employee = employeeRepository.findById(vO.getIdEmployee()).orElseThrow(() -> new NoSuchElementException());
         GroupTable groupTable = groupTableRepository.findById(vO.getIdGroupTable()).orElseThrow(() -> new NoSuchElementException());
         BeanUtils.copyProperties(vO, bean);
         bean.setGroupTable(groupTable);

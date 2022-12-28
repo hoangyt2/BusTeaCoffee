@@ -1,7 +1,6 @@
-package com.java04.wibucian.controllers.admin;
+package com.java04.wibucian.controllers.staff;
 
 import com.java04.wibucian.models.GroupTableNoMapPing;
-import com.java04.wibucian.models.Ordercf;
 import com.java04.wibucian.models.OrdercfNoMapPing;
 import com.java04.wibucian.models.ProductNoMapPing;
 import com.java04.wibucian.services.GroupTableService;
@@ -9,7 +8,6 @@ import com.java04.wibucian.services.OrdercfService;
 import com.java04.wibucian.services.ProductService;
 import com.java04.wibucian.vos.OrdercfUpdateVO;
 import com.java04.wibucian.vos.OrdercfVO;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -22,7 +20,7 @@ import java.util.List;
 
 @Validated
 @Controller
-@RequestMapping("admin/ordercf")
+@RequestMapping("staff/ordercf")
 public class OrdercfController {
     @Autowired
     private ProductService productService;
@@ -39,7 +37,7 @@ public class OrdercfController {
     public String index(ModelMap modelMap) {
         modelMap.addAttribute("groupTables", groupTableService.findAll());
         modelMap.addAttribute("products", productService.listAll());
-        return "admin/order/index";
+        return "staff/order/index";
     }
     @PostMapping( produces = "application/json; charset=utf-8")
     @ResponseBody

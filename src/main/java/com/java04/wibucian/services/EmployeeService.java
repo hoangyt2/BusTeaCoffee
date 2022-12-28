@@ -51,8 +51,15 @@ public class EmployeeService {
         return this.employeeRepository.findAll();
     }
 
-    public void delete(String id) {
+    public boolean delete(String id) {
+        Employee employee = employeeRepository.findById(id).orElse(null);
+        if (employee == null) {
+            return false;
+        }
+        String idAccount = employee.getAccount().getId();
+        accountRepository.deleteById(idAccount);
         employeeRepository.deleteById(id);
+        return true;
     }
 
     public void update(String id, EmployeeUpdateVO vO) {

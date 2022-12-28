@@ -1,9 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="../includes/hd.jsp"></jsp:include>
-<jsp:include page="../includes/header.jsp"></jsp:include>
-<jsp:include page="../includes/sidebar.jsp"></jsp:include>
-<jsp:include page="../includes/container.jsp"></jsp:include>
+<jsp:include page="../../admin/includes/hd.jsp"></jsp:include>
+<jsp:include page="../../admin/includes/header.jsp"></jsp:include>
+<jsp:include page="../../admin/includes/sidebar1.jsp"></jsp:include>
+<jsp:include page="../../admin/includes/container.jsp"></jsp:include>
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="vi_VN"/>
@@ -12,7 +12,7 @@
     <div class="card-header cursor-pointer">
         <!--begin::Card title-->
         <div class="card-title m-0">
-            <h3 class="fw-bold m-0">Danh sách hoá đơn</h3>
+            <h3 class="fw-bold m-0"></h3>
         </div>
         <!--end::Card title-->
         <!--begin::Action-->
@@ -61,7 +61,7 @@
                             </c:if>
                         </td>
                         <td class="text-left">
-                            <a href="/admin/invoice/detail/${item.id}" data-action="${item.id}"
+                            <a href="/staff/invoice/detail/${item.id}" data-action="${item.id}"
                                class="btn btn-icon btn-primary  btn-sm btn-icon-md btn-circle"
                                data-toggle="tooltip" data-placement="top" title="Sửa">
                                 <i class="fa fa-edit"></i>
@@ -88,36 +88,36 @@
             <c:if test="${ allPage > 1}">
                 <c:if test="${ currentPage > 1}">
                     <li class="page-item">
-                        <a class="page-link" href="/admin/invoice/${currentPage - 1}?limit=${limit}">
+                        <a class="page-link" href="/staff/invoice/${currentPage - 1}?limit=${limit}">
                             <i class="fa fa-angle-left"></i>
                         </a>
                     </li>
                 </c:if>
                 <c:if test="${ currentPage == 1}">
                     <li class="page-item disabled">
-                        <a class="page-link" href="/admin/invoice/${currentPage - 1}?limit=${limit}">
+                        <a class="page-link" href="/staff/invoice/${currentPage - 1}?limit=${limit}">
                             <i class="fa fa-angle-left"></i>
                         </a>
                     </li>
                 </c:if>
                 <c:forEach var="i" begin="1" end="${allPage}">
                     <c:if test="${ i == currentPage}">
-                        <li class="page-item active"><a href="/admin/invoice/${i}?limit=${limit}" class="page-link">${i}</a></li>
+                        <li class="page-item active"><a href="/staff/invoice/${i}?limit=${limit}" class="page-link">${i}</a></li>
                     </c:if>
                     <c:if test="${ i != currentPage}">
-                        <li class="page-item"><a href="/admin/invoice/${i}?limit=${limit}" class="page-link">${i}</a></li>
+                        <li class="page-item"><a href="/staff/invoice/${i}?limit=${limit}" class="page-link">${i}</a></li>
                     </c:if>
                 </c:forEach>
                 <c:if test="${ currentPage == allPage}">
                     <li class="page-item disabled">
-                        <a class="page-link" href="/admin/invoice/${currentPage + 1}?limit=${limit}">
+                        <a class="page-link" href="/staff/invoice/${currentPage + 1}?limit=${limit}">
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </li>
                 </c:if>
                 <c:if test="${ currentPage < allPage}">
                     <li class="page-item ">
-                        <a class="page-link" href="/admin/invoice/${currentPage + 1}?limit=${limit}">
+                        <a class="page-link" href="/staff/invoice/${currentPage + 1}?limit=${limit}">
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </li>
@@ -128,13 +128,13 @@
 </div>
 
 </div>
-<jsp:include page="../includes/footer.jsp"></jsp:include>
-<jsp:include page="../includes/end.jsp"></jsp:include>
+<jsp:include page="../../admin/includes/footer.jsp"></jsp:include>
+<jsp:include page="../../admin/includes/end.jsp"></jsp:include>
 <script>
 
     $(document).on("click", ".delete-btn", function () {
         var id = $(this).attr("data-action");
-        var url = "/admin/invoice/" + id;
+        var url = "/staff/invoice/" + id;
         var that = $(this);
         swal.fire({
             title: 'Bạn có chắc chắn muốn xóa?',
@@ -173,7 +173,7 @@
             toltalMoney: totalMoney
         }
         $.ajax({
-            url: "/admin/invoice/payment",
+            url: "/staff/invoice/payment",
             method: "POST",
             contentType: "application/json",
             data: JSON.stringify(data),

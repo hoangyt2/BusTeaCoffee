@@ -42,7 +42,7 @@
                             <th scope="row">${  item.id }</th>
                             <td>${  item.employee.name }</td>
                             <td>${  item.dateFormat }</td>
-                            <td class="text-center">
+                            <td class="text-left">
                                 <a href="/admin/importgoods/${item.id}" data-action="${item.id}"
                                    class="btn btn-icon btn-primary  btn-sm btn-icon-md btn-circle"
                                    data-toggle="tooltip" data-placement="top" title="Sửa">
@@ -86,4 +86,39 @@
             }
         });
     });
+    //
+    // $(document).on("click", ".delete-btn", function () {
+    //     var row = $(this).closest("tr");
+    //     var id = $(this).attr("data-id");
+    //     console.log(id);
+    //
+    //     swal.fire({
+    //         title: "Bạn có chắc chắn muốn xóa?",
+    //         text: "Sau khi xóa, bạn sẽ không thể phục hồi dữ liệu này!",
+    //         icon: "warning",
+    //         showCancelButton: true,
+    //         confirmButtonColor: "#3085d6",
+    //         cancelButtonColor: "#d33",
+    //         confirmButtonText: "Đồng ý",
+    //         cancelButtonText: "Hủy bỏ"
+    //     }).then(function (result) {
+    //         if (result.value) {
+    //             $.ajax({
+    //                 url: "/admin/importgoods/delete/" + id,
+    //                 type: "GET",
+    //                 success: function (result) {
+    //                     if (result.check === true) {
+    //                         toastr.success("Xóa thành công");
+    //                         row.remove();
+    //                         window.location.reload();
+    //                     } else {
+    //                         toastr.error("Xóa thất bại");
+    //                     }
+    //                 }
+    //             })
+    //         }
+    //     });
+    //
+    //
+    // });
 </script>

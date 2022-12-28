@@ -22,8 +22,10 @@ public class RollCallService {
     public void createRollCall(Shift shift) {
         RollCall rollCall = new RollCall();
         rollCall.setShift(shift);
-        rollCall.setRollCallTime(Utils.getCurrentDate()
-                                      .toInstant());
+//        rollCall.setRollCallTime(Utils.getCurrentDate()
+//                                      .toInstant());
+        rollCall.setRollCallTime(Utils.getCurrentDateRollCall()
+                .toInstant());
         this.rollCallRepository.save(rollCall);
     }
 

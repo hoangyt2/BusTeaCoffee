@@ -4,10 +4,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="vi_VN"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="../includes/hd.jsp"></jsp:include>
-<jsp:include page="../includes/header.jsp"></jsp:include>
-<jsp:include page="../includes/sidebar.jsp"></jsp:include>
-<jsp:include page="../includes/container.jsp"></jsp:include>
+<jsp:include page="../../admin/includes/hd.jsp"></jsp:include>
+<jsp:include page="../../admin/includes/header.jsp"></jsp:include>
+<jsp:include page="../../admin/includes/sidebar1.jsp"></jsp:include>
+<jsp:include page="../../admin/includes/container.jsp"></jsp:include>
 
 
 <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
@@ -311,8 +311,8 @@
         </div>
     </div>
 </div>
-<jsp:include page="../includes/footer.jsp"></jsp:include>
-<jsp:include page="../includes/end.jsp"></jsp:include>
+<jsp:include page="../../admin/includes/footer.jsp"></jsp:include>
+<jsp:include page="../../admin/includes/end.jsp"></jsp:include>
 <script>
     //handel delete-btn
     $(document).on("click", ".delete-btn", function (e) {
@@ -331,7 +331,7 @@
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: "/admin/detailInvoice/delete/" + id,
+                    url: "/staff/detailInvoice/delete/" + id,
                     type: "GET",
                     success: function (result) {
                         if (result.check == true) {
@@ -376,7 +376,7 @@
             quantity: quantity
         };
         $.ajax({
-            url: "/admin/detailInvoice/" + id,
+            url: "/staff/detailInvoice/" + id,
             contentType: "application/json",
             type: "PUT",
             data: JSON.stringify(data),
@@ -422,7 +422,7 @@
         }
         console.log(JSON.stringify(data));
         $.ajax({
-            url: "/admin/detailInvoice/store",
+            url: "/staff/detailInvoice/store",
             method: "POST",
             contentType: "application/json",
             data: JSON.stringify(data),
@@ -445,7 +445,7 @@
             customerName: name
         }
         $.ajax({
-            url: "/admin/invoice/" + id,
+            url: "/staff/invoice/" + id,
             method: "PUT",
             contentType: "application/json",
             data: JSON.stringify(data),
@@ -469,7 +469,7 @@
             status: 2
         }
         $.ajax({
-            url: "/admin/invoice/" + id,
+            url: "/staff/invoice/" + id,
             method: "PUT",
             contentType: "application/json",
             data: JSON.stringify(data),

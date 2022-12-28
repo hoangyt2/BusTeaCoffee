@@ -143,7 +143,7 @@
                                     </tr>
                                     <tr>
                                         <td>Hệ số lương</td>
-                                        <td><input value="0" type="number" class="form-control" id="employeeSalary" name="coefficientsSalary" value="${employee.coefficientsSalary}" required/>
+                                        <td><input type="number" class="form-control" id="employeeSalary" name="coefficientsSalary" value="${employee.coefficientsSalary}" required/>
                                         </td>
                                     </tr>
                                     </tbody>

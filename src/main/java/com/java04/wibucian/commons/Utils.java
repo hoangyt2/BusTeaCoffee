@@ -29,12 +29,30 @@ public class Utils {
         return currentDate;
     }
 
+    public static Calendar getCurrentDateRollCall() {
+        Calendar currentDate = Calendar.getInstance();
+        currentDate.setTime(new Date());
+        return currentDate;
+    }
+
     public static Calendar currentDateWithoutTime() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         Calendar currentDateWithoutTime = Calendar.getInstance();
         try {
             currentDateWithoutTime.setTime(
                     sdf.parse(sdf.format(getCurrentDate().getTime())));
+            return currentDateWithoutTime;
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static Calendar currentDateWithoutTimeRollCall() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar currentDateWithoutTime = Calendar.getInstance();
+        try {
+            currentDateWithoutTime.setTime(
+                    sdf.parse(sdf.format(new Date().getTime())));
             return currentDateWithoutTime;
         } catch (ParseException e) {
             throw new RuntimeException(e);

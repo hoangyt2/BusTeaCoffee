@@ -1,4 +1,4 @@
-package com.java04.wibucian.controllers.admin;
+package com.java04.wibucian.controllers.staff;
 
 import com.java04.wibucian.services.QrCodeService;
 import com.java04.wibucian.vos.QrCodeVO;

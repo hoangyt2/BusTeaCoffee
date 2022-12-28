@@ -15,7 +15,7 @@
         <div class="card-header cursor-pointer">
             <!--begin::Card title-->
             <div class="card-title m-0">
-                <h3 class="fw-bold m-0">Dach sách đợt giảm giá</h3>
+                <h3 class="fw-bold m-0">Danh sách đợt giảm giá</h3>
             </div>
             <!--end::Card title-->
             <!--begin::Action-->

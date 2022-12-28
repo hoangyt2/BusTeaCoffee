@@ -459,7 +459,7 @@ public class ShiftService {
     }
 
     public Optional<Shift> getCurrentShiftOfEmployee(Employee employee) {
-        Date shiftDate = Utils.currentDateWithoutTime()
+        Date shiftDate = Utils.currentDateWithoutTimeRollCall()
                               .getTime();
         int shiftCode = getShiftCodeFromCurrentDate();
         if (shiftCode == 0) return Optional.empty();

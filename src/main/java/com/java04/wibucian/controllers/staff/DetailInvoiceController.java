@@ -1,4 +1,4 @@
-package com.java04.wibucian.controllers.admin;
+package com.java04.wibucian.controllers.staff;
 
 import com.java04.wibucian.dtos.DetailInvoiceDTO;
 import com.java04.wibucian.services.DetailInvoiceService;
@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.time.Instant;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 @Validated
 @RestController
-@RequestMapping("admin/detailInvoice")
+@RequestMapping("staff/detailInvoice")
 public class DetailInvoiceController {
 
     @Autowired

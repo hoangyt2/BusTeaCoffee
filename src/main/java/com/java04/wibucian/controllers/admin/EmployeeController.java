@@ -135,18 +135,20 @@ public class EmployeeController {
     @ResponseBody
     public ResponseEntity<Object> delete(@PathVariable("id") String id) {
         try {
-            employeeService.delete(id);
-            HashMap<String, Object> map = new HashMap<>();
-            map.put("check", true);
-            map.put("value", "test");
-            return ResponseEntity.ok().body(map);
+            boolean res = employeeService.delete(id);
+            if (res) {
+                HashMap<String, Object> map = new HashMap<>();
+                map.put("check", true);
+                map.put("value", "test");
+                return ResponseEntity.ok().body(map);
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            HashMap<String, Object> map = new HashMap<>();
-            map.put("check", false);
-            map.put("value", "test");
-            return ResponseEntity.ok().body(map);
         }
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("check", false);
+        map.put("value", "test");
+        return ResponseEntity.ok().body(map);
     }
 
     @PutMapping("/{id}")
